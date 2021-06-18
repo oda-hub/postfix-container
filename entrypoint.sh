@@ -27,6 +27,8 @@ postconf 'smtp_sasl_auth_enable = no' || exit 1
 #postconf 'smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd' || exit 1
 #postconf 'smtp_sasl_security_options =' || exit 1
 
+postconf "smtp_host_lookup = native" || exit 1
+
 # These are required
 postconf "relayhost = ${TX_SMTP_RELAY_HOST}" || exit 1
 postconf "myhostname = ${TX_SMTP_RELAY_MYHOSTNAME}" || exit 1
